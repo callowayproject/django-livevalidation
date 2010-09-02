@@ -84,10 +84,10 @@ class ValidationNode(template.Node):
 def live_validate(parser, token):
     """Live Validation JavaScript Generator for Django Forms
 
-    {% live_validate FORM [OPT=VALUE,...] %}
+    {% live_validate <form> [option=value ...] %}
     
-    Where the FORM is any forms.Form (or subclass) instance
-    The optional OPT = VALUE kwargs are in pairs as follows:
+    Where the <form> is any django.forms.Form (or subclass) instance
+    The optional option=value kwargs are in pairs as follows:
     
         -  validMessage = message to be used upon successful validation (DEFAULT: "Thankyou!")
         -  onValid = javascript function name to execute when field passes validation 

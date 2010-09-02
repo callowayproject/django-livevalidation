@@ -1,6 +1,0 @@
-Django-LiveValidation
- 
-To start using the app, place it in your INSTALLED_APPS.
-The project by default will add live validation to your admin site.
-It overwrites some admin template files, so look there if things dont look as they should.
-Other forms can be validated using the templatetags.
