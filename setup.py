@@ -1,10 +1,12 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name = "django-livevalidation",
-    version = '0.1',
-    url = 'http://opensource.washingtontimes.com/projects/django-livevalidation/',
+    version = '0.1.1',
+    url = 'http://github.com/washingtontimes/django-livevalidation',
     author = 'Justin Quick',
-    description = 'Validates form input before submitting',
-    packages = ['livevalidation']
+    author_email = 'justquick@gmail.com',
+    description = 'Live validation for Django forms. It validates as you type. Uses scripts from livevalidation.com',
+    packages = find_packages(),
+    include_package_data = True,
 )
