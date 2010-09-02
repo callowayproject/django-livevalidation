@@ -1,0 +1,68 @@
+{% extends "admin/change_form.html" %}
+{% load i18n lv_tags %}
+
+{% block after_field_sets %}
+<script src="/media/js/livevalidation_standalone.compressed.js" type="text/javascript"></script>
+<style>
+.LV_validation_message{
+    font-weight:bold;
+    margin:0 0 0 5px;
+}
+
+.LV_valid {
+    color:#00CC00;
+}
+	
+.LV_invalid {
+    color:#CC0000;
+}
+    
+.LV_valid_field,
+input.LV_valid_field:hover, 
+input.LV_valid_field:active,
+textarea.LV_valid_field:hover, 
+textarea.LV_valid_field:active {
+    border: 1px solid #00CC00;
+}
+    
+.LV_invalid_field, 
+input.LV_invalid_field:hover, 
+input.LV_invalid_field:active,
+textarea.LV_invalid_field:hover, 
+textarea.LV_invalid_field:active {
+    border: 1px solid #CC0000;
+}
+</style>
+
+<p>{% trans "First, enter a username and password. Then, you'll be able to edit more user options." %}</p>
+
+<fieldset class="module aligned">
+
+<div class="form-row">
+  {{ form.username.errors }}
+  {# TODO: get required class on label_tag #}
+  <label for="id_username" class="required">{% trans 'Username' %}:</label> {{ form.username }}
+  <p class="help">{{ form.username.help_text }}</p>
+</div>
+
+<div class="form-row">
+
+  {{ form.password1.errors }}
+  {# TODO: get required class on label_tag #}
+  <label for="id_password1" class="required">{% trans 'Password' %}:</label> {{ form.password1 }}
+</div>
+
+<div class="form-row">
+  {{ form.password2.errors }}
+  {# TODO: get required class on label_tag #}
+  <label for="id_password2" class="required">{% trans 'Password (again)' %}:</label> {{ form.password2 }}
+  <p class="help">{% trans 'Enter the same password as above, for verification.' %}</p>
+</div>
+
+
+<script type="text/javascript">document.getElementById("id_username").focus();</script>
+
+{% live_validate form %}
+
+</fieldset>
+{% endblock %}

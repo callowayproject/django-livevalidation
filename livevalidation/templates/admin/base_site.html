@@ -1,0 +1,15 @@
+
+{% extends "admin/base.html" %}
+{% load i18n lv_tags %}
+
+{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+ 	
+{% block nav-global %}{% endblock %}
+
+{% block extrahead %}
+    {% include 'lv/header.html' %}
+{% endblock %}
