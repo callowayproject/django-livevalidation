@@ -1,0 +1,14 @@
+{% load lv_tags %}
+<html><head>
+
+{% include 'lv/header.html' %}
+
+</head><body>
+
+<form method="post">
+{{ form.as_p }}
+<input type="submit"/>
+{% live_validate form failureMessage=OhNo! %}
+</form>
+
+</body></html>
