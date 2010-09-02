@@ -254,13 +254,13 @@ class LiveValidation:
     
         >>> usern = LiveValidation('id_username', wait=10)
         >>> usern.add(Format, pattern= r'/^hello$/i') #doctest: +ELLIPSIS
-        <__main__.LiveValidation instance at...
+        <livevalidation.validator.LiveValidation instance at...
         >>> usern.disable() #doctest: +ELLIPSIS
-        <__main__.LiveValidation instance at...
+        <livevalidation.validator.LiveValidation instance at...
         >>> usern.enable() #doctest: +ELLIPSIS
-        <__main__.LiveValidation instance at...
+        <livevalidation.validator.LiveValidation instance at...
         >>> usern.remove(Format, minimum= r'/^woohoo+$/') #doctest: +ELLIPSIS
-        <__main__.LiveValidation instance at...
+        <livevalidation.validator.LiveValidation instance at...
         """
     def __init__(self,element,**kw):
         self.commands = ["var LV%s =  new LiveValidation('%s', { %s });"%\
@@ -327,9 +327,3 @@ class LiveValidation:
         return ''
 
     
-def test():
-    import doctest
-    doctest.testmod(verbose=1)
-
-if __name__ == '__main__':
-    test()
