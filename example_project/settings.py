@@ -92,3 +92,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
 )
+
+try:
+    import django_coverage
+    TEST_RUNNER = 'django_coverage.coverage_runner.run_tests'
+except ImportError:
+    pass
