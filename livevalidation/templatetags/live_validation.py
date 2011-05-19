@@ -19,19 +19,20 @@ class ValidationNode(template.Node):
         result = ['<script type="text/javascript">']
         self.form = context[self.form]
         self.formcls = self.form.__class__
+        prefix = ''
         try:
             # admin formset
             fields = self.form.form.fields
+            if self.form.form.prefix:
+                prefix = '%s-'%self.form.prefix
         except AttributeError:
             try:
                 # regular form
                 fields = self.form.fields
             except AttributeError:
                 raise template.TemplateSyntaxError('Form %s has no fields'%self.form)
-        if self.form.prefix:
-            prefix = '%s-'%self.form.prefix
-        else:
-            prefix = ''
+            if self.form.prefix:
+                prefix = '%s-'%self.form.prefix
         for name,field in fields.items():
             result.append(self.do_field('%s%s'%(prefix,name),field))
         try:
