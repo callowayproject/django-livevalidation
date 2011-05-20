@@ -263,9 +263,9 @@ class LiveValidation:
         <livevalidation.validator.LiveValidation instance at...
         """
     def __init__(self,element,**kw):
+        self.element = element.replace('-', '_')
         self.commands = ["var LV%s =  new LiveValidation('%s', { %s });"%\
-                         (element,element,','.join(inner(kw.items())))]
-        self.element = element
+                         (self.element,element,','.join(inner(kw.items())))]
         
     def add(self, validator, **kw):
         """

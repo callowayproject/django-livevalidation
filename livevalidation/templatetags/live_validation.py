@@ -22,14 +22,16 @@ class ValidationNode(template.Node):
         try:
             # admin formset
             fields = self.form.form.fields
+            prefix = '%s-'%self.form.prefix if self.form.form.prefix else ''
         except AttributeError:
             try:
                 # regular form
                 fields = self.form.fields
             except AttributeError:
                 raise template.TemplateSyntaxError('Form %s has no fields'%self.form)
+            prefix = '%s-'%self.form.prefix if self.form.prefix else ''
         for name,field in fields.items():
-            result.append(self.do_field(name,field))
+            result.append(self.do_field('%s%s'%(prefix,name),field))
         try:
             result.append(LV_EXTRA_SCRIPT%{'fieldname':'id_%s'%fields.keys()[1]})
         except:
